@@ -16,6 +16,7 @@ namespace ResponseParser.Model
         public string ReceiverId { get; set; }
         public string SenderId { get; set; }
         public string ICN { get; set; }
+        public string GroupControlNumber { get; set; }
         public string TransactionDate { get; set; }
         public string TransactionTime { get; set; }
         public string TransactionsIncluded { get; set; }

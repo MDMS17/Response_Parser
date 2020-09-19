@@ -15,6 +15,9 @@ namespace ResponseParser.Parser
             string[] segments = line.Split('*');
             switch (segments[0])
             {
+                case "AK1":
+                    processingFile.GroupControlNumber = segments[2];
+                    break;
                 case "AK2":
                     loopName = "2000";
                     _999Transaction transaction = new _999Transaction
@@ -46,9 +49,9 @@ namespace ResponseParser.Parser
                         PositionInTransaction = errors.Last().PositionInTransaction,
                         PositionInSegment = segments[1],
                         ElementReferenceInSegment = segments[2],
-                        ElementErrorCode = segments[3],
-                        ElementBadDataCopy = segments[4]
+                        ElementErrorCode = segments[3]
                     };
+                    if (segments.Length > 4) element.ElementBadDataCopy = segments[4];
                     elements.Add(element);
                     break;
                 case "CTX":
